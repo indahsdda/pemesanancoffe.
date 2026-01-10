@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "510745565362",
+    "firebase_url": "https://pemesanancoff3-default-rtdb.firebaseio.com",
+    "project_id": "pemesanancoff3",
+    "storage_bucket": "pemesanancoff3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510745565362:android:0f4292bad97d90d74851ab",
+        "android_client_info": {
+          "package_name": "com.example.projek_uas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6zyN43zmTo7-XGa3kGxlpgbTufMRwT98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">projek_uas</string>
+    <string name="tambah">Tambah</string>
+    <string name="nama_kopi">Nama Kopi</string>
+    <string name="harga_default">Rp 0</string>
+</resources>

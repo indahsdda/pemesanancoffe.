@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="#FFFFFF">
+
+    <EditText
+        android:id="@+id/etPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="+62..."
+        android:inputType="phone"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/btnSendOtp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Kirim Kode OTP"
+        android:backgroundTint="#EF231B"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/etOtpCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="000000"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="6"
+        android:layout_marginTop="30dp"
+        android:background="@android:drawable/editbox_background"
+        android:padding="15dp"/>
+
+    <Button
+        android:id="@+id/btnVerifyOtp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Verifikasi dan Masuk"
+        android:backgroundTint="#EF231B"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"/>
+</LinearLayout>

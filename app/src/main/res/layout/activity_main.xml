@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- BAGIAN KATEGORI (TOMBOL FILTER) -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAll"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="All"
+                android:textSize="16sp"
+                android:backgroundTint="#EF231B"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnBijiKopi"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Biji Kopi"
+                android:textSize="16sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#EF231B"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnCreamer"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Creamer"
+                android:textSize="16sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#EF231B"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnBubukCoklat"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Bubuk Coklat"
+                android:textSize="16sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#EF231B" />
+
+            <Button
+                android:id="@+id/btnMinuman"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Minuman"
+                android:textSize="16sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#EF231B"
+                android:layout_marginStart="8dp" />
+
+            <Button
+                android:id="@+id/btnGula"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Gula"
+                android:textSize="16sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#EF231B"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- BAGIAN LIST PRODUK -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProduk"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2" />
+
+    <!-- BOTTOM NAVIGATION -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:itemIconTint="#EF231B"
+        app:itemTextColor="#EF231B"
+        app:menu="@menu/bottom_menu" />
+
+</LinearLayout>
