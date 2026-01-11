@@ -24,7 +24,9 @@ class CartActivity : AppCompatActivity() {
 
         binding.btnBayar.setOnClickListener {
             if (CartManager.getKeranjang().isNotEmpty()) {
-                startActivity(Intent(this, PaymentActivity::class.java))
+                // Alihkan ke CheckoutActivity, bukan langsung ke PaymentActivity
+                val intent = Intent(this, CheckoutActivity::class.java)
+                startActivity(intent)
             } else {
                 Toast.makeText(this, "Keranjang kosong!", Toast.LENGTH_SHORT).show()
             }

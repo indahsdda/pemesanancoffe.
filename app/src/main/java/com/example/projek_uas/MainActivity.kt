@@ -18,18 +18,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // ID diubah menjadi String (pakai " ") agar tidak mismatch
         listProduk = listOf(
-            Produk(1, "Biji Kopi Arabica 1Kg", 120000, R.drawable.biji_kopi_arabica_1kg, "Biji Kopi"),
-            Produk(2, "Biji Kopi Blend 1Kg", 110000, R.drawable.biji_kopi_blend_1kg, "Biji Kopi"),
-            Produk(3, "Caramel Macchiato", 28000, R.drawable.caramel_machiato, "Minuman"),
-            Produk(4, "Coklat Bubuk", 45000, R.drawable.coklat_bubuk, "Bubuk Coklat"),
-            Produk(5, "Creamer", 30000, R.drawable.creamer, "Creamer"),
-            Produk(6, "Gula Aren Cair", 25000, R.drawable.gula_aren_cair, "Gula")
+            Produk("1", "Biji Kopi Arabica 1Kg", 120000, R.drawable.biji_kopi_arabica_1kg, "Biji Kopi", "Biji Kopi"),
+            Produk("2", "Biji Kopi Blend 1Kg", 110000, R.drawable.biji_kopi_blend_1kg, "Biji Kopi", "Biji Kopi"),
+            Produk("3", "Caramel Macchiato", 28000, R.drawable.caramel_machiato, "Minuman", "Minuman"),
+            Produk("4", "Coklat Bubuk", 45000, R.drawable.coklat_bubuk, "Bubuk Coklat", "Bubuk Coklat"),
+            Produk("5", "Creamer", 30000, R.drawable.creamer, "Creamer", "Creamer"),
+            Produk("6", "Gula Aren Cair", 25000, R.drawable.gula_aren_cair, "Gula", "Gula")
         )
 
         setupRecyclerView(listProduk)
 
-        // FILTER KATEGORI
         binding.btnAll.setOnClickListener { setupRecyclerView(listProduk) }
         binding.btnBijiKopi.setOnClickListener { setupRecyclerView(listProduk.filter { it.kategori == "Biji Kopi" }) }
         binding.btnCreamer.setOnClickListener { setupRecyclerView(listProduk.filter { it.kategori == "Creamer" }) }
@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         binding.btnMinuman.setOnClickListener { setupRecyclerView(listProduk.filter { it.kategori == "Minuman" }) }
         binding.btnGula.setOnClickListener { setupRecyclerView(listProduk.filter { it.kategori == "Gula" }) }
 
-        // BOTTOM NAVIGATION
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_home -> {
@@ -56,7 +55,6 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.menu_assignment -> {
-                    // PINDAH KE HALAMAN RIWAYAT (Halaman yang menampilkan data dari Firebase)
                     startActivity(Intent(this, RiwayatActivity::class.java))
                     true
                 }

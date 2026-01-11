@@ -9,58 +9,51 @@ import com.google.firebase.database.*
 
 class RiwayatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRiwayatBinding
-
-    // List untuk menampung data Produk dari Firebase
-    private val listRiwayat = mutableListOf<Produk>()
-    private lateinit var adapter: RiwayatAdapter
+    private lateinit var dbRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRiwayatBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Inisialisasi Adapter dan RecyclerView
-        adapter = RiwayatAdapter(listRiwayat)
         binding.rvRiwayat.layoutManager = LinearLayoutManager(this)
-        binding.rvRiwayat.adapter = adapter
+        dbRef = FirebaseDatabase.getInstance().getReference("RiwayatPesanan")
 
-        ambilDataDariFirebase()
+        loadData()
     }
 
-    private fun ambilDataDariFirebase() {
-        // Mengambil referensi dari folder 'riwayat'
-        val database = FirebaseDatabase.getInstance().getReference("riwayat")
-
-        database.addValueEventListener(object : ValueEventListener {
+    private fun loadData() {
+        dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                listRiwayat.clear()
-
-                // Looping setiap grup pesanan yang ada di folder riwayat
-                for (riwayatSnapshot in snapshot.children) {
-
-                    // Looping isi produk di dalam setiap riwayat
-                    for (produkSnapshot in riwayatSnapshot.children) {
-                        val id = produkSnapshot.child("id_produk").getValue(Int::class.java) ?: 0
-                        val nama = produkSnapshot.child("nama").getValue(String::class.java) ?: ""
-                        val harga = produkSnapshot.child("harga").getValue(Int::class.java) ?: 0
-                        val kategori = produkSnapshot.child("kategori").getValue(String::class.java) ?: ""
-
-                        // AMBIL ID GAMBAR DARI FIREBASE (DINAMIS)
-                        // Jika data di Firebase tidak ada, baru akan menggunakan angka 0 agar tidak error
-                        val gambarRes = produkSnapshot.child("gambarRes").getValue(Int::class.java) ?: 0
-
-                        // Masukkan ke list sesuai data asli yang dibeli
-                        listRiwayat.add(Produk(id, nama, harga, gambarRes, kategori))
+                val listData = mutableListOf<Produk>()
+                for (order in snapshot.children) {
+                    // Simpan Key Order (ID di Firebase) ke dalam produk agar bisa dihapus nanti
+                    val orderKey = order.key ?: ""
+                    for (node in order.children) {
+                        val p = node.getValue(Produk::class.java)
+                        if (p != null) {
+                            // Gunakan ID unik dari Firebase agar hapusnya akurat
+                            val produkDenganKey = p.copy(id = orderKey)
+                            listData.add(produkDenganKey)
+                        }
                     }
                 }
 
-                // Memberitahu adapter bahwa data sudah berubah untuk ditampilkan ke layar
-                adapter.notifyDataSetChanged()
+                // Pasang Adapter dengan Fungsi Hapus
+                binding.rvRiwayat.adapter = RiwayatAdapter(listData) { orderId ->
+                    hapusDataFirebase(orderId)
+                }
             }
-
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@RiwayatActivity, "Gagal ambil data: ${error.message}", Toast.LENGTH_SHORT).show()
-            }
+            override fun onCancelled(error: DatabaseError) {}
         })
+    }
+
+    private fun hapusDataFirebase(id: String) {
+        // Hapus data berdasarkan ID di Firebase
+        dbRef.child(id).removeValue().addOnSuccessListener {
+            Toast.makeText(this, "Riwayat Berhasil Dihapus", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Toast.makeText(this, "Gagal Menghapus Riwayat", Toast.LENGTH_SHORT).show()
+        }
     }
 }
