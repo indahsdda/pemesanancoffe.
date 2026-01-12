@@ -12,9 +12,9 @@ Fitur yang dibuat
 ![image alt](https://github.com/indahsdda/pemesanancoffe./blob/5d4c718cc1b184ab736cec0cd47176b5dc787a32/WhatsApp%20Image%202026-01-10%20at%2019.17.55.jpeg)
 ![image alt](https://github.com/indahsdda/pemesanancoffe./blob/2576961bffc8069618724e5e86e5a451c14ee7c8/WhatsApp%20Image%202026-01-10%20at%2019.17.55%20(1).jpeg)
 ![image alt](https://github.com/indahsdda/PemesananCoffe/blob/main/WhatsApp%20Image%202026-01-11%20at%2019.53.43.jpeg?raw=true)
-![image alt](https://github.com/indahsdda/PemesananCoffe/blob/main/WhatsApp%20Image%202026-01-11%20at%2019.53.43%20(1).jpeg?raw=true)
-![image alt](https://github.com/indahsdda/PemesananCoffe/blob/main/WhatsApp%20Image%202026-01-11%20at%2019.53.44.jpeg?raw=true)
-![image alt](https://github.com/indahsdda/PemesananCoffe/blob/main/dcbf6270-996b-4076-a0bb-91e7d53816a9.jpg?raw=true)
+![image alt](https://github.com/indahsdda/pemesanancoffe./blob/0ee26603769aa7eb4d62d15fd039963ccfdcb871/WhatsApp%20Image%202026-01-11%20at%2019.53.43.jpeg)
+![image alt](https://github.com/indahsdda/pemesanancoffe./blob/0ee26603769aa7eb4d62d15fd039963ccfdcb871/WhatsApp%20Image%202026-01-11%20at%2019.53.44.jpeg)
+![image alt](https://github.com/indahsdda/pemesanancoffe./blob/0ee26603769aa7eb4d62d15fd039963ccfdcb871/WhatsApp%20Image%202026-01-11%20at%2019.53.44.jpeg)
 
 Cara menjalankan aplikasi
   - bagian utama buat akun(email/password atau phone) lalu masuk dengan akun yang sudah anda pake
